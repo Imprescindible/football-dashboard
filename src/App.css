@@ -1,0 +1,52 @@
+import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-dom";
+import MatchesPage from "./pages/MatchesPage";
+import StandingsPage from "./pages/StandingsPage";
+import MatchPage from "./pages/MatchPage";
+import "./App.css";
+
+function Nav() {
+  const location = useLocation();
+  return (
+    <nav style={{
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      marginBottom: "2.5rem",
+      paddingBottom: "1rem",
+      borderBottom: "0.5px solid #1a1a1a"
+    }}>
+      <div style={{ fontSize: "12px", letterSpacing: "0.15em", color: "#555" }}>
+        PREMIER LEAGUE
+      </div>
+      <div style={{ display: "flex", gap: "2rem" }}>
+        <Link to="/" style={{
+          fontSize: "12px",
+          letterSpacing: "0.08em",
+          color: location.pathname === "/" ? "#fff" : "#555"
+        }}>
+          МАТЧИ
+        </Link>
+        <Link to="/standings" style={{
+          fontSize: "12px",
+          letterSpacing: "0.08em",
+          color: location.pathname === "/standings" ? "#fff" : "#555"
+        }}>
+          ТАБЛИЦА
+        </Link>
+      </div>
+    </nav>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Nav />
+      <Routes>
+        <Route path="/" element={<MatchesPage />} />
+        <Route path="/standings" element={<StandingsPage />} />
+        <Route path="/match/:id" element={<MatchPage />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
