@@ -35,7 +35,7 @@ function Nav() {
       </div>
       <div style={{ display: "flex", gap: "2rem", alignItems: "center" }}>
         <Link
-          to="/"
+          to="/matches"
           style={{
             fontSize: "12px",
             letterSpacing: "0.08em",
@@ -74,8 +74,8 @@ function AppContent() {
       <Nav />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<MatchesPage />} />
-          <Route path="/standings" element={<StandingsPage />} />
+          <Route path="/" element={<StandingsPage />} />
+          <Route path="/matches" element={<MatchesPage />} />
           <Route path="/match/:id" element={<MatchPage />} />
           <Route path="/team/:id" element={<TeamPage />} />
           <Route path="*" element={<NotFoundPage />} />
