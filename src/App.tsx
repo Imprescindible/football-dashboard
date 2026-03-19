@@ -4,6 +4,7 @@ import {
   Route,
   Link,
   useLocation,
+  Navigate,
 } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -74,6 +75,7 @@ function AppContent() {
       <Nav />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Navigate to="/standings" replace />} />
           <Route path="/standings" element={<StandingsPage />} />
           <Route path="/matches" element={<MatchesPage />} />
           <Route path="/match/:id" element={<MatchPage />} />
