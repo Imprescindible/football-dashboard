@@ -39,7 +39,7 @@ function Nav() {
           style={{
             fontSize: "12px",
             letterSpacing: "0.08em",
-            color: location.pathname === "/" ? "#fff" : "#555",
+            color: location.pathname === "/matches" ? "#fff" : "#555",
             textDecoration: "none",
           }}
         >
@@ -74,7 +74,7 @@ function AppContent() {
       <Nav />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<StandingsPage />} />
+          <Route path="/standings" element={<StandingsPage />} />
           <Route path="/matches" element={<MatchesPage />} />
           <Route path="/match/:id" element={<MatchPage />} />
           <Route path="/team/:id" element={<TeamPage />} />
